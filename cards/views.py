@@ -50,7 +50,7 @@ def profile(request):
     'posts':posts,
     'subjects':subjects,
     }
-    return render(request, 'profile/profile.html', context)
+    return render(request, 'django_registration/profile.html', context)
 
 @login_required(login_url='/accounts/login/')
 def updateprofile(request):
@@ -75,7 +75,7 @@ def updateprofile(request):
     'subjects':subjects,
     }
 
-    return render(request, 'profile/update_profile.html', context)
+    return render(request, 'django_registration/update_profile.html', context)
 
 
 
