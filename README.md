@@ -79,7 +79,7 @@ Open [localhost:8000](http://127.0.0.1:8000/)
 
 
 ## Testing the Application
-`python manage.py test insta`
+`python manage.py test cards`
         
 ## Built With
 
