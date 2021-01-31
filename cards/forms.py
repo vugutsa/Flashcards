@@ -27,3 +27,8 @@ class SubjectForm(forms.ModelForm):
     class Meta:
         model= Subjects
         exclude= ['author', 'created_date', 'author_profile']
+        
+class SubjectForm(forms.ModelForm):   
+    class Meta:
+        model= Subjects
+        exclude= ['author', 'created_date', 'author_profile']

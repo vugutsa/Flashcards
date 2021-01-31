@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import *
 from .models import *
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
 
 # Create your views here.
 @login_required(login_url='/accounts/login/')
@@ -114,3 +116,13 @@ def search_subjects(request):
         message = "You haven't searched for any user"
 
         return render(request, 'search.html', {"message":message})
+
+def updatesubject(request):
+    form = SubjectForm()
+    context = {'form' : form}
+    return render(request, 'update.html', context)
+
+def deletesubject(request):
+    context = {'object:title' : subjects}
+    return render(request, 'delete.html', context)
+

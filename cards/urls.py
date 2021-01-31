@@ -5,7 +5,6 @@ from django.conf.urls.static import static
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView 
 
-
 urlpatterns = [
     path('',views.home,name='home'),
     path('accounts/register/', views.registration, name='register'),
@@ -14,7 +13,9 @@ urlpatterns = [
     path('accounts/profile/', views.profile, name='profile'),
     path('updateprofile/', views.updateprofile, name='updateprofile'),
     path('new-subject/', views.postsubject, name='newsubject'),
-    path('subject/<id>', views.get_subject, name='subject'),
+    path('subject/<id>', views.get_subject, name='subjects'),
+    path('updatesubject/', views.updatesubject,name="update"),
+    path('deletesubject/', views.deletesubject,name="delete"),
     path('search/', views.search_subjects, name='search_subjects'),
 
 ]
