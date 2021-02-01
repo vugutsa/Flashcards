@@ -53,7 +53,11 @@ class Subjects(models.Model):
 
     def delete_subject(self):
         self.delete()
-
+        
+    @classmethod
+    def update_subject(cls, id, value):
+        cls.objects.filter(id=id).update(name = value)
+        
     @classmethod
     def search_subjects(cls,search_term):
         subject = cls.objects.filter(title__icontains=search_term)

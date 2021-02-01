@@ -4,6 +4,7 @@ from .forms import *
 from .models import *
 from django.contrib import messages
 from django.views.generic import CreateView, ListView,DetailView,UpdateView,DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 # Create your views here.
 @login_required(login_url='/accounts/login/')
@@ -137,3 +138,13 @@ def deleteForm(request):
     context ={     
     }
     return render(request ,'delete.html', context )
+
+def updatesubject(request):
+    form = SubjectForm()
+    context = {'form' : form}
+    return render(request, 'update.html', context)
+
+def deletesubject(request):
+    context = {'object:title' : subjects}
+    return render(request, 'delete.html', context)
+
