@@ -40,10 +40,13 @@
                         <h5 class="card-title"> {{ subject.description }}</h5>
                         <a  class="btn btn-outline-info" href="/subject/{{subject.id}}">View details</a>
                       </div>
+                      <a class="btn btn-secondary btn-sm mt-1 mb-sm" href="{% url 'updateForm' subject.id%}">Update</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'deleteForm'  subject.id%}">Delete</a>
                       <div class="card-footer">
                         <span class="dark-text"><img src="{{ subject.author.profile.image.url }}" alt=""  style="width: 50px; border-radius: 50%;">
                         Posted By {{subject.author}} <br>
                           <span class="ml-2 dark-text">On: {{subject.created_date}}</span></span>
+
                       </div>
                     </div>
 

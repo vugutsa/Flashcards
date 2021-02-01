@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView 
-
+from .views import FlashcardCreateView,FlashcardListView,FlashcardUpdateView,FlashcardDeleteView
 
 urlpatterns = [
     path('',views.home,name='home'),
@@ -16,6 +16,8 @@ urlpatterns = [
     path('new-subject/', views.postsubject, name='newsubject'),
     path('subject/<id>', views.get_subject, name='subject'),
     path('search/', views.search_subjects, name='search_subjects'),
+    path('post/<int:pk>/update/',FlashcardUpdateView.as_view(), name="updateForm"),
+    path('post/<int:pk>/delete/',FlashcardDeleteView.as_view(), name="deleteForm"),
 
 ]
 if settings.DEBUG:
