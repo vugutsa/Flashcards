@@ -115,7 +115,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'flashcards',
         'USER': 'moringa',
-    'PASSWORD':'Access',
+    'PASSWORD':'12345',
     }
 }
 

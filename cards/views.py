@@ -3,8 +3,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import *
 from .models import *
 from django.contrib import messages
+from django.views.generic import CreateView, ListView,DetailView,UpdateView,DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-
 
 # Create your views here.
 @login_required(login_url='/accounts/login/')
@@ -116,6 +116,28 @@ def search_subjects(request):
         message = "You haven't searched for any user"
 
         return render(request, 'search.html', {"message":message})
+class FlashcardListView(ListView):
+    model = Subjects   
+    template_name = 'index.html'   
+    context_object_name = 'subjects'
+    ordering = ['-pub_date']
+class FlashcardCreateView(CreateView):
+    model = Subjects
+    template_name = 'PostSubject.html'   
+    fields= ['title', 'description','author']    
+class FlashcardUpdateView(UpdateView):
+    model = Subjects
+    template_name = 'PostSubject.html'   
+    fields= ['title', 'description','author']  
+    success_url = ('/')  
+class FlashcardDeleteView(DeleteView):
+    model = Subjects
+    template_name = 'delete.html'
+    success_url = ('/')
+def deleteForm(request):
+    context ={     
+    }
+    return render(request ,'delete.html', context )
 
 def updatesubject(request):
     form = SubjectForm()

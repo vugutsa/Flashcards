@@ -17,6 +17,8 @@ urlpatterns = [
     path('updatesubject/', views.updatesubject,name="update"),
     path('deletesubject/', views.deletesubject,name="delete"),
     path('search/', views.search_subjects, name='search_subjects'),
+    path('post/<int:pk>/update/',FlashcardUpdateView.as_view(), name="updateForm"),
+    path('post/<int:pk>/delete/',FlashcardDeleteView.as_view(), name="deleteForm"),
 
 ]
 if settings.DEBUG:
